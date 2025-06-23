@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trevor's</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="font-inter antialiased overflow-x-hidden">
+
+    <nav class="bg-gradient-to-r from-stone-700 to-stone-900 p-4 shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div id="brand-logo" class="text-white text-2xl md:text-3xl font-extrabold font-inter tracking-wide cursor-pointer animate-pulse">
+                Trevor's
+            </div>
+            <ul class="hidden md:flex items-center space-x-6">
+                <li>
+                    <button id="nav-home" class="text-stone-300 hover:text-white transition duration-300 ease-in-out transform hover:scale-105 font-semibold text-lg py-2 px-4 rounded-full hover:bg-stone-700 focus:outline-none focus:ring-2 focus:ring-stone-500 focus:ring-opacity-75">
+                        Home
+                    </button>
+                </li>
+                <li>
+                    <button id="nav-gallery" class="text-stone-300 hover:text-white transition duration-300 ease-in-out transform hover:scale-105 font-semibold text-lg py-2 px-4 rounded-full hover:bg-stone-700 focus:outline-none focus:ring-2 focus:ring-stone-500 focus:ring-opacity-75">
+                        Gallery
+                    </button>
+                </li>
+                <li>
+                    <button id="nav-contact" class="text-stone-300 hover:text-white transition duration-300 ease-in-out transform hover:scale-105 font-semibold text-lg py-2 px-4 rounded-full hover:bg-stone-700 focus:outline-none focus:ring-2 focus:ring-stone-500 focus:ring-opacity-75">
+                        Contact
+                    </button>
+                </li>
+            </ul>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden mt-4">
+            <ul class="flex flex-col space-y-2">
+                <li>
+                    <button id="mobile-nav-home" class="w-full text-left text-stone-300 hover:text-white hover:bg-stone-700 p-3 rounded-lg transition duration-300">Home</button>
+                </li>
+                <li>
+                    <button id="mobile-nav-gallery" class="w-full text-left text-stone-300 hover:text-white hover:bg-stone-700 p-3 rounded-lg transition duration-300">Gallery</button>
+                </li>
+                <li>
+                    <button id="mobile-nav-contact" class="w-full text-left text-stone-300 hover:text-white hover:bg-stone-700 p-3 rounded-lg transition duration-300">Contact</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="app-root">
+        </main>
+
+    <footer class="bg-stone-900 text-stone-300 py-6 text-center text-sm">
+        <div class="container mx-auto">
+            &copy; <span id="current-year"></span> Trevor's Portfolio. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+<script>
+    // Set current year in footer
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    // Navigation button event listeners
+    document.getElementById('nav-home').addEventListener('click', () => {
+        document.getElementById('app-root').innerHTML = '<h1 class="text-4xl text-center mt-10">Welcome to Trevor\'s Portfolio</h1>';
+    });
+
+    document.getElementById('nav-gallery').addEventListener('click', () => {
+        document.getElementById('app-root').innerHTML = '<h1 class="text-4xl text-center mt-10">Gallery Section</h1>';
+    });
+
+    document.getElementById('nav-contact').addEventListener('click', () => {
+        document.getElementById('app-root').innerHTML = '<h1 class="text-4xl text-center mt-10">Contact Section</h1>';
+    });
